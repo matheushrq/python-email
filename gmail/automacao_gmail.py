@@ -20,7 +20,7 @@ meu_email = testa_conexao()
 
 lista = meu_email.fetch(AND(from_=email_from, subject=email_subject))
 
-def processar_emails(mes, dia):
+def processa_emails(mes, dia):
     try:
         pasta_destino = "arquivo"
         os.makedirs(pasta_destino, exist_ok=True)
@@ -34,3 +34,8 @@ def processar_emails(mes, dia):
                         print(f"Anexo {anexo.filename} salvo com sucesso em {pasta_destino}!")
     except Exception as e:
         print(f"Erro ao processar emails: {e}")
+
+if __name__ == "__main__":
+    mes = input("Digite o mês (MM): ")
+    dia = input("Digite o dia (DD): ")
+    processa_emails(mes, dia)
